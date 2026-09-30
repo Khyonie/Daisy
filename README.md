@@ -28,6 +28,8 @@ cd DocumentLLM
 ```
 Build the frontend:
 ```shell
+npm install
+
 npm run build --prefix docllm-frontend/
 ```
 Then, start the backend:
