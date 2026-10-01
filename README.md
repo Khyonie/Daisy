@@ -22,7 +22,7 @@ Connect to the website at `127.0.0.1:3001`.
 
 Clone the repository:
 ```shell
-git clone https://github.com/Khyonie/DocumentLLM.git
+git clone https://github.com/Khyonie/Daisy.git
 
 cd DocumentLLM
 ```
