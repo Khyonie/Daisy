@@ -1,4 +1,4 @@
-# DocumentLLM
+# Daisy
 
 Self-contained RAG chat app for PDF and Markdown documents, with query decomposition, multi-query rewriting, dedupe, and reranking.
 
