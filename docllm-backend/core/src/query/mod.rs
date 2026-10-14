@@ -19,10 +19,7 @@ pub struct UserQueryResponse {
 
 const SYSTEM_PROMPT: &str = include_str!("../../../../prompts/DECOMPOSE_SYSTEM_PROMPT.md");
 
-pub async fn decompose_query(
-    query: &str,
-    model: &str
-) -> Result<Vec<UserQuery>, String> {
+pub async fn decompose_query(query: &str, model: &str) -> Result<Vec<UserQuery>, String> {
     let system_message = ChatMessage::new(RoleType::System, String::from(SYSTEM_PROMPT));
     let prompt = ChatMessage::new(RoleType::User, String::from(query));
 

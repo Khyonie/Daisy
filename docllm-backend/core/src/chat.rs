@@ -10,10 +10,12 @@ use crate::{
         self,
         providers::{RetrievalType, retrieve},
         retrieval::SearchHit,
-    }, llm::{
+    },
+    llm::{
         message::{ChatMessage, RoleType},
         ollama::{OllamaClient, SYSTEM_PROMPT},
-    }, query::{UserQuery, decompose_query},
+    },
+    query::{UserQuery, decompose_query},
 };
 
 const RESULT_LIMIT: usize = 3;
@@ -83,12 +85,16 @@ impl ChatService {
 
         // Build sources from queries
         let mut sources = Vec::new();
-        let queries = decompose_query(query, model)
+        let queries = decompose_query(query, model).await?;
+        for q in queries {
+            let mut query_sources = Self::retrieve_context_from_decomposed_query(
+                q,
+                model,
+                rag_provider,
+                &table,
+                report,
+            )
             .await?;
-        for q in queries
-        {
-            let mut query_sources = Self::retrieve_context_from_decomposed_query(q, model, rag_provider, &table, report)
-                .await?;
             sources.append(&mut query_sources);
         }
 
@@ -303,7 +309,9 @@ mod tests {
             .await
             .unwrap();
         assert_eq!(
-            require_ingested_documents(Ok(table.clone())).await.unwrap_err(),
+            require_ingested_documents(Ok(table.clone()))
+                .await
+                .unwrap_err(),
             NO_INGESTED_DOCUMENTS
         );
 
