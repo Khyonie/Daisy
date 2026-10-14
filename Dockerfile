@@ -1,7 +1,7 @@
 ARG OLLAMA_VERSION=0.33.2
 FROM ollama/ollama:${OLLAMA_VERSION} AS ollama
 
-FROM rust:1.97-trixie AS chef
+FROM rust:1.98-trixie AS chef
 RUN cargo install cargo-chef --locked
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends libprotobuf-dev libssl-dev pkg-config protobuf-compiler \
