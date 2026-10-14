@@ -7,9 +7,9 @@ Self-contained RAG chat app for PDF and Markdown documents, with query decomposi
 # Quickstart
 ### Docker 🐳
 ```shell
-docker pull ghcr.io/khyonie/documentllm:latest
+docker pull ghcr.io/khyonie/daisy:latest
 
-docker run -d -p 3001:3001 ghcr.io/khyonie/documentllm:latest
+docker run -d -p 3001:3001 ghcr.io/khyonie/daisy:latest
 ```
 > [!NOTE]
 > This will automatically fetch `gemma4:e4b`, so it can be rapidly installed on remote machines with no setup.
@@ -24,7 +24,7 @@ Clone the repository:
 ```shell
 git clone https://github.com/Khyonie/Daisy.git
 
-cd DocumentLLM
+cd Daisy
 ```
 Build the frontend:
 ```shell
