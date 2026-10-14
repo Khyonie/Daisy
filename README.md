@@ -1,4 +1,5 @@
 # Daisy
+[![CI](https://github.com/Khyonie/Daisy/actions/workflows/ci.yml/badge.svg)](https://github.com/Khyonie/Daisy/actions/workflows/ci.yml)
 
 Self-contained RAG chat app for PDF and Markdown documents, with query decomposition, multi-query rewriting, dedupe, and reranking.
 
